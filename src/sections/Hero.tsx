@@ -1,4 +1,5 @@
 import React from 'react';
+import KerkarHandwritten from '../components/KerkarHandwritten';
 import './Hero.css';
 
 const Hero: React.FC = () => {
@@ -11,7 +12,7 @@ const Hero: React.FC = () => {
             <div className='creations'>CREATIONS</div>
           </h1>
           <p className="hero-tagline">
-            BRINGING YOUR <span className="highlight-text">KERKAR</span> IDEAS TO LIFE
+            BRINGING YOUR <span className="kerkar-container"><KerkarHandwritten /></span> IDEAS TO LIFE
           </p>
         </div>
       </div>

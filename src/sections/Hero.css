@@ -62,6 +62,14 @@
   font-weight: 700;
 }
 
+.kerkar-container {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
+  position: relative;
+  top: -2px; /* Fine-tune vertical alignment */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero {
