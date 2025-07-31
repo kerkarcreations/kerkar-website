@@ -1,0 +1,13 @@
+.App {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+main {
+  padding-top: 0; /* Navigation is fixed */
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
