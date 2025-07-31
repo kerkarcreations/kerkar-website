@@ -60,6 +60,11 @@
   align-items: center;
 }
 
+/* Hide mobile contact button on desktop */
+.mobile-contact-btn {
+  display: none;
+}
+
 .theme-toggle-corner {
   position: absolute;
   right: var(--spacing-md);
@@ -187,6 +192,7 @@
   }
 
   .mobile-contact-btn {
+    display: block; /* Show on mobile */
     background: var(--primary-red) !important;
     color: white !important;
     border-radius: 4px;
