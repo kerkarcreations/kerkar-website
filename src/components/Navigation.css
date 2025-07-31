@@ -26,8 +26,10 @@
 
 .brand-logo {
   height: 80px;
-  width: auto;
+  width: 200px; /* Fixed width for consistency */
   object-fit: contain;
+  object-position: center;
+  transition: opacity 0.3s ease; /* Smooth transition when switching */
 }
 
 .nav-menu {

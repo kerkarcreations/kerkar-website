@@ -5,6 +5,7 @@ import './Navigation.css';
 const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +14,33 @@ const Navigation: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Track theme changes
+  useEffect(() => {
+    const checkTheme = () => {
+      const hasLightTheme = document.documentElement.hasAttribute('data-theme') && 
+                           document.documentElement.getAttribute('data-theme') === 'light';
+      setIsDarkTheme(!hasLightTheme);
+    };
+
+    // Check initial theme
+    checkTheme();
+
+    // Preload both logo images for smooth switching
+    const lightLogo = new Image();
+    const darkLogo = new Image();
+    lightLogo.src = '/logo.png';
+    darkLogo.src = '/logo_dark.png';
+
+    // Create observer for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   // Lock body scroll when mobile menu is open
@@ -61,7 +89,7 @@ const Navigation: React.FC = () => {
       <div className="container nav-container">
         <div className="nav-brand">
           <img 
-            src="/logo.png" 
+            src={isDarkTheme ? "/logo_dark.png" : "/logo.png"}
             alt="Kerkar Creations" 
             className="brand-logo" 
             onClick={scrollToTop}
