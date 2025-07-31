@@ -10,52 +10,52 @@ section.stats {
 section.stats .stats-container {
   width: 100%;
   padding: var(--spacing-xl);
-  text-align: center !important;
   margin: 0 auto;
   box-sizing: border-box;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* min-height: 60vh; */
 }
 
 section.stats .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(2rem, 8vw, 6rem);
-  margin: 0 auto var(--spacing-6xl) auto !important;
-  /* max-width: 900px; */
-  text-align: center !important;
-  justify-items: center !important;
+  margin: 0 auto var(--spacing-4xl) auto;
+  text-align: center;
+  justify-items: center;
   width: 100%;
+  /* max-width: 900px; */
   box-sizing: border-box;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 section.stats .stat-item {
-  text-align: center !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 section.stats .stat-number {
-  font-family: 'Bebas Neue', sans-serif !important;
-  font-size: clamp(2rem, 5vw, 5rem) !important;
-  font-weight: 400 !important;
-  line-height: 0.8 !important;
-  color: var(--theme-text-primary) !important;
-  margin-bottom: var(--spacing-sm) !important;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 0.8;
+  color: var(--theme-text-primary);
+  margin-bottom: var(--spacing-sm);
 }
 
 section.stats .stat-label {
-  font-family: 'Inter', sans-serif !important;
-  font-size: clamp(0.8rem, 1.5vw, 1rem) !important;
-  font-weight: 600 !important;
-  color: var(--theme-text-secondary) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  line-height: 1.3 !important;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  font-weight: 600;
+  color: var(--theme-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
 }
 
 /* Clients Section */
@@ -166,21 +166,15 @@ section.stats .stat-label {
 
 @media (max-width: 768px) {
   section.stats .stats-container {
-    padding: 0 var(--spacing-md);
-    width: 100%;
-    max-width: 100vw;
-    box-sizing: border-box;
+    padding: var(--spacing-4xl) var(--spacing-md);
+    min-height: 50vh;
   }
   
   section.stats .stats-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-2xl);
     max-width: 320px;
-    margin-bottom: var(--spacing-4xl);
-    justify-items: center;
-    width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-bottom: var(--spacing-3xl);
   }
   
   .clients-scroll {
@@ -202,11 +196,9 @@ section.stats .stat-label {
     padding: var(--spacing-2xl) 0;
   }
   
-  section.stats .stats-container,
-  .clients-container {
-    padding: 0 var(--spacing-md);
-    max-width: 100vw;
-    box-sizing: border-box;
+  section.stats .stats-container {
+    padding: var(--spacing-3xl) var(--spacing-md);
+    min-height: 40vh;
   }
   
   section.stats .stats-grid {
@@ -215,12 +207,12 @@ section.stats .stat-label {
   }
   
   section.stats .stat-number {
-    font-size: clamp(2rem, 12vw, 3.5rem) !important;
-    line-height: 0.9 !important;
+    font-size: clamp(2rem, 12vw, 3.5rem);
+    line-height: 0.9;
   }
   
   section.stats .stat-label {
-    font-size: clamp(0.65rem, 2.5vw, 0.8rem) !important;
+    font-size: clamp(0.65rem, 2.5vw, 0.8rem);
   }
   
   .clients-scroll {

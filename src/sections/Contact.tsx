@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
       <div className="contact-container">
         {/* Header */}
         <div className="contact-header">
-          <h2 className="contact-title">LET'S CONNECT</h2>
+          <h2 className="contact-title">LET'S CREATE</h2>
           <p className="contact-subtitle">
             Ready to bring your vision to life? Let's discuss your next immersive project.
           </p>
@@ -90,12 +90,12 @@ const Contact: React.FC = () => {
             
             <div className="info-item">
               <span className="info-label">LOCATION</span>
-              <span className="info-value">Global • Remote</span>
+              <span className="info-value">Kathmandu, Nepal</span>
             </div>
             
             <div className="info-item">
               <span className="info-label">RESPONSE TIME</span>
-              <span className="info-value">Within 24 hours</span>
+              <span className="info-value">Within 48 hours</span>
             </div>
 
             <div className="social-links">
