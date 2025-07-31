@@ -15,6 +15,20 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on component unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const navItems = [
     { label: 'SERVICES', href: '#services' },
     { label: 'PORTFOLIO', href: '#portfolio' },
@@ -55,6 +69,14 @@ const Navigation: React.FC = () => {
           />
         </div>
         
+        {/* Mobile backdrop */}
+        {isMobileMenuOpen && (
+          <div 
+            className="mobile-backdrop"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+        
         <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           {navItems.map((item) => (
             <button
@@ -69,6 +91,17 @@ const Navigation: React.FC = () => {
               {item.label}
             </button>
           ))}
+          
+          {/* Mobile contact button */}
+          <button 
+            className="nav-link mobile-contact-btn"
+            onClick={() => {
+              scrollToContact();
+              setIsMobileMenuOpen(false);
+            }}
+          >
+            CONTACT US
+          </button>
         </div>
 
         <div className="nav-actions">
