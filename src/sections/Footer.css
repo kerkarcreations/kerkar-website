@@ -1,0 +1,133 @@
+.footer {
+  background: var(--theme-bg-secondary);
+  padding: var(--spacing-3xl) 0 var(--spacing-xl) 0;
+  margin-top: var(--spacing-4xl);
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--spacing-4xl);
+  align-items: start;
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Brand */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--theme-text-primary);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.footer-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  font-weight: 400;
+  color: var(--theme-text-secondary);
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+/* Quick Links */
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
+.footer-nav {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.footer-link {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  font-weight: 500;
+  color: var(--theme-text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: var(--spacing-xs) 0;
+}
+
+.footer-link:hover {
+  color: var(--primary-red);
+}
+
+/* Copyright */
+.footer-bottom {
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--theme-border-subtle);
+  text-align: center;
+}
+
+.footer-copyright {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.7rem, 1vw, 0.8rem);
+  font-weight: 400;
+  color: var(--theme-text-muted);
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--spacing-2xl) 0 var(--spacing-lg) 0;
+    margin-top: var(--spacing-3xl);
+  }
+  
+  .footer-container {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .footer-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+  
+  .footer-bottom {
+    padding-top: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .footer-nav {
+    gap: var(--spacing-sm);
+  }
+  
+  .footer-content {
+    gap: var(--spacing-xl);
+  }
+}

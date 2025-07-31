@@ -161,7 +161,7 @@ const Portfolio: React.FC = () => {
         </div>
       </div>
 
-      {/* Gradient overlays */}
+      {/* Fade overlays */}
       <div className="portfolio-gradient portfolio-gradient-left"></div>
       <div className="portfolio-gradient portfolio-gradient-right"></div>
     </section>

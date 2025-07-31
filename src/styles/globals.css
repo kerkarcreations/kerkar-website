@@ -1,4 +1,4 @@
-/* Global CSS Variables for Kerkar Creations Dual Theme */
+/* Global CSS Variables for Kerkar Creations Non-Gradient Theme */
 :root {
   /* Red Brand Colors (consistent across themes) */
   --primary-red: #ff0040;
@@ -6,10 +6,6 @@
   --primary-red-light: #ff3366;
   --accent-red: #ff6b6b;
   --neon-red: #ff0040;
-  
-  /* Gradient Combinations */
-  --red-gradient: linear-gradient(135deg, #ff0040 0%, #ff6b6b 100%);
-  --neon-gradient: linear-gradient(135deg, #ff0040 0%, #ff3366 50%, #ff6b6b 100%);
 }
 
 /* Dark Theme (Futuristic) */
@@ -24,6 +20,10 @@
   --theme-text-accent: #ff0040;
   --theme-text-muted: #888888;
   
+  --theme-surface: #111111;
+  --theme-border: #333333;
+  --theme-border-subtle: #222222;
+  
   --theme-glass-bg: rgba(255, 0, 64, 0.05);
   --theme-glass-bg-dark: rgba(0, 0, 0, 0.7);
   --theme-glass-border: rgba(255, 0, 64, 0.1);
@@ -31,9 +31,6 @@
   
   --theme-neon-glow: 0 0 20px rgba(255, 0, 64, 0.6);
   --theme-neon-strong: 0 0 30px rgba(255, 0, 64, 0.8);
-  
-  --primary-gradient: linear-gradient(135deg, #ff0040 0%, #000000 50%, #ff3366 100%);
-  --dark-gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2d2d2d 100%);
 }
 
 /* Light Theme (Clean/Figma Design) */
@@ -48,6 +45,10 @@
   --theme-text-accent: #ff0040;
   --theme-text-muted: #adb5bd;
   
+  --theme-surface: #ffffff;
+  --theme-border: #dee2e6;
+  --theme-border-subtle: #e9ecef;
+  
   --theme-glass-bg: rgba(255, 255, 255, 0.9);
   --theme-glass-bg-dark: rgba(255, 255, 255, 0.95);
   --theme-glass-border: rgba(0, 0, 0, 0.1);
@@ -55,9 +56,6 @@
   
   --theme-neon-glow: 0 4px 16px rgba(255, 0, 64, 0.2);
   --theme-neon-strong: 0 8px 24px rgba(255, 0, 64, 0.3);
-  
-  --primary-gradient: linear-gradient(135deg, #ff0040 0%, #ff3366 100%);
-  --dark-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 /* Universal Variables */
@@ -68,6 +66,11 @@
   --spacing-md: 2rem;
   --spacing-lg: 3rem;
   --spacing-xl: 4rem;
+  --spacing-2xl: 5rem;
+  --spacing-3xl: 6rem;
+  --spacing-4xl: 8rem;
+  --spacing-5xl: 10rem;
+  --spacing-6xl: 12rem;
   
   /* Typography */
   --font-size-xs: 0.875rem;
@@ -110,7 +113,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--red-gradient);
+  background: var(--primary-red);
   border-radius: 4px;
 }
 
@@ -138,20 +141,14 @@ body {
   color: var(--theme-text-primary);
 }
 
-/* Gradient Text */
+/* Accent Text */
 .gradient-text {
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-red);
 }
 
-/* Red Gradient Text */
+/* Red Accent Text */
 .red-gradient-text {
-  background: var(--red-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-red);
 }
 
 /* Floating Animation */
@@ -204,8 +201,8 @@ body {
 }
 
 .btn-primary {
-  background: var(--red-gradient);
-  color: var(--theme-text-primary);
+  background: var(--primary-red);
+  color: white;
   box-shadow: var(--theme-neon-glow);
   border: 1px solid var(--primary-red);
 }
@@ -213,7 +210,7 @@ body {
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: var(--theme-neon-strong);
-  background: var(--primary-gradient);
+  background: var(--primary-red-dark);
 }
 
 .btn-ghost {

@@ -18,7 +18,7 @@ const Navigation: React.FC = () => {
   const navItems = [
     { label: 'SERVICES', href: '#services' },
     { label: 'PORTFOLIO', href: '#portfolio' },
-    { label: 'CLIENTS', href: '#clients' }
+    { label: 'CLIENTS', href: '#stats' }
   ];
 
   const scrollToTop = () => {
@@ -26,6 +26,20 @@ const Navigation: React.FC = () => {
       top: 0,
       behavior: 'smooth'
     });
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -43,19 +57,25 @@ const Navigation: React.FC = () => {
         
         <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
           {navItems.map((item) => (
-            <a
+            <button
               key={item.label}
-              href={item.href}
+              onClick={() => {
+                const sectionId = item.href.replace('#', '');
+                scrollToSection(sectionId);
+                setIsMobileMenuOpen(false);
+              }}
               className="nav-link"
-              onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </div>
 
         <div className="nav-actions">
-          <button className="btn btn-primary contact-btn">
+          <button 
+            className="btn btn-primary contact-btn"
+            onClick={scrollToContact}
+          >
             CONTACT US
           </button>
         </div>

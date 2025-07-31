@@ -42,10 +42,7 @@
 }
 
 .gradient-text {
-  background: var(--red-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-red);
   display: inline-block;
 }
 

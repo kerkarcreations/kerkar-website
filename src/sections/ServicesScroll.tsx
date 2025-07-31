@@ -76,7 +76,7 @@ const ServicesScroll: React.FC = () => {
         ))}
       </div>
 
-      {/* Gradient overlays for depth */}
+      {/* Fade overlays for depth */}
       <div className="gradient-overlay gradient-left"></div>
       <div className="gradient-overlay gradient-right"></div>
     </section>
