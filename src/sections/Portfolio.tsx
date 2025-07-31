@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { portfolioProjects } from '../data/portfolioData';
 import './Portfolio.css';
 
 const Portfolio: React.FC = () => {
@@ -6,57 +7,6 @@ const Portfolio: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
-
-  const portfolioProjects = [
-    {
-      id: 1,
-      title: "PROJECT 1",
-      year: "2023",
-      company: "META INC",
-      image: "/project-placeholder.jpg", // Placeholder for now
-      height: "tall"
-    },
-    {
-      id: 2,
-      title: "PROJECT 2",
-      year: "2020",
-      company: "SNAP INC",
-      image: "/project-placeholder.jpg",
-      height: "medium"
-    },
-    {
-      id: 3,
-      title: "PROJECT 3",
-      year: "2022",
-      company: "GOOGLE",
-      image: "/project-placeholder.jpg",
-      height: "tall"
-    },
-    {
-      id: 4,
-      title: "PROJECT 4",
-      year: "2021",
-      company: "APPLE INC",
-      image: "/project-placeholder.jpg",
-      height: "medium"
-    },
-    {
-      id: 5,
-      title: "PROJECT 5",
-      year: "2023",
-      company: "MICROSOFT",
-      image: "/project-placeholder.jpg",
-      height: "short"
-    },
-    {
-      id: 6,
-      title: "PROJECT 6",
-      year: "2022",
-      company: "NVIDIA",
-      image: "/project-placeholder.jpg",
-      height: "tall"
-    }
-  ];
 
   const handleProjectHover = (projectId: number) => {
     setHoveredProject(projectId);
@@ -117,13 +67,25 @@ const Portfolio: React.FC = () => {
           {portfolioProjects.map((project) => (
             <div
               key={project.id}
-              className={`portfolio-card ${project.height} ${
+              className={`portfolio-card ${project.height} ${project.width || 'normal'} ${
                 hoveredProject === project.id ? 'hovered' : ''
-              }`}
+              } ${project.featured ? 'featured' : ''}`}
               onMouseEnter={() => handleProjectHover(project.id)}
               onMouseLeave={handleProjectLeave}
+              onClick={() => project.link && window.open(project.link, '_blank')}
+              style={{ cursor: project.link ? 'pointer' : 'default' }}
             >
               <div className="card-image">
+                {project.image && (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    onError={(e) => {
+                      // Fallback to placeholder if image fails to load
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                )}
               </div>
               
               <div className="card-info">
@@ -131,6 +93,20 @@ const Portfolio: React.FC = () => {
                 <div className="project-meta">
                   <span className="project-year">{project.year}</span>
                   <span className="project-company">{project.company}</span>
+                </div>
+                
+                {/* Show additional info on hover */}
+                <div className="project-details">
+                  {project.description && (
+                    <p className="project-description">{project.description}</p>
+                  )}
+                  {project.technologies && project.technologies.length > 0 && (
+                    <div className="project-technologies">
+                      {project.technologies.map((tech, index) => (
+                        <span key={index} className="tech-tag">{tech}</span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -140,13 +116,25 @@ const Portfolio: React.FC = () => {
           {portfolioProjects.map((project) => (
             <div
               key={`duplicate-${project.id}`}
-              className={`portfolio-card ${project.height} ${
+              className={`portfolio-card ${project.height} ${project.width || 'normal'} ${
                 hoveredProject === project.id ? 'hovered' : ''
-              }`}
+              } ${project.featured ? 'featured' : ''}`}
               onMouseEnter={() => handleProjectHover(project.id)}
               onMouseLeave={handleProjectLeave}
+              onClick={() => project.link && window.open(project.link, '_blank')}
+              style={{ cursor: project.link ? 'pointer' : 'default' }}
             >
               <div className="card-image">
+                {project.image && (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    onError={(e) => {
+                      // Fallback to placeholder if image fails to load
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                )}
               </div>
               
               <div className="card-info">
@@ -154,6 +142,20 @@ const Portfolio: React.FC = () => {
                 <div className="project-meta">
                   <span className="project-year">{project.year}</span>
                   <span className="project-company">{project.company}</span>
+                </div>
+                
+                {/* Show additional info on hover */}
+                <div className="project-details">
+                  {project.description && (
+                    <p className="project-description">{project.description}</p>
+                  )}
+                  {project.technologies && project.technologies.length > 0 && (
+                    <div className="project-technologies">
+                      {project.technologies.map((tech, index) => (
+                        <span key={index} className="tech-tag">{tech}</span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

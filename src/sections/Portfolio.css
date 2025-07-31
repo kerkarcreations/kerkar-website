@@ -63,16 +63,36 @@
   overflow: hidden;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  min-width: 300px;
-  height: 500px;
+  width: 300px; /* Fixed width for consistency */
+  height: 400px; /* Default height */
   display: flex;
   flex-direction: column;
 }
 
-.portfolio-card.short,
-.portfolio-card.medium,
+/* Height variations */
+.portfolio-card.short {
+  height: 320px;
+}
+
+.portfolio-card.medium {
+  height: 400px;
+}
+
 .portfolio-card.tall {
-  height: 500px;
+  height: 480px;
+}
+
+/* Width variations */
+.portfolio-card.narrow {
+  width: 240px;
+}
+
+.portfolio-card.normal {
+  width: 300px;
+}
+
+.portfolio-card.wide {
+  width: 380px;
 }
 
 .portfolio-card:hover {
@@ -92,7 +112,6 @@
 .card-info {
   background: var(--theme-bg-primary);
   padding: var(--spacing-lg);
-  border-top: 1px solid var(--theme-border-subtle);
 }
 
 .project-title {
@@ -123,6 +142,85 @@
 
 .project-company {
   color: var(--primary-red);
+}
+
+/* Enhanced project details */
+.project-details {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-top: var(--spacing-sm);
+}
+
+.portfolio-card:hover .project-details {
+  opacity: 1;
+  max-height: 200px;
+}
+
+.project-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: var(--theme-text-secondary);
+  line-height: 1.4;
+  margin-bottom: var(--spacing-sm);
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tech-tag {
+  background: var(--primary-red);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.project-category {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(10px);
+}
+
+.card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* Featured projects - subtle enhancement */
+.portfolio-card.featured {
+  box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.2);
+}
+
+.portfolio-card.featured:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(220, 38, 38, 0.3);
 }
 
 /* Fade overlays */
