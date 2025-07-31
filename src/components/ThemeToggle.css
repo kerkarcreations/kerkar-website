@@ -22,12 +22,20 @@
 }
 
 .toggle-icon {
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  color: var(--theme-text-primary);
+}
+
+.toggle-icon svg {
   transition: all var(--transition-normal);
 }
 
 .theme-toggle:hover .toggle-icon {
   transform: scale(1.1);
+  color: var(--primary-red);
 }
 
 /* Animation for theme switch */
