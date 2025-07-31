@@ -7,11 +7,11 @@ const ServicesScroll: React.FC = () => {
   const [pausedRow, setPausedRow] = useState<number | null>(null);
 
   const serviceRows = [
-    { highlighted: "AUGMENTED", normal: "REALITY", speed: 70 },
-    { highlighted: "VIRTUAL", normal: "REALITY", speed: 65 },
-    { highlighted: "MIXED", normal: "REALITY", speed: 60 },
-    { highlighted: "APP", normal: "DEVELOPMENT", speed: 75 },
-    { highlighted: "WEB", normal: "DEVELOPMENT", speed: 65 }
+    { highlighted: "AUGMENTED", normal: "REALITY", speed: 90 },
+    { highlighted: "VIRTUAL", normal: "REALITY", speed: 95 },
+    { highlighted: "MIXED", normal: "REALITY", speed: 100 },
+    { highlighted: "APP", normal: "DEVELOPMENT", speed: 90 },
+    { highlighted: "WEB", normal: "DEVELOPMENT", speed: 92 }
   ];
 
   const handleRowHover = (rowIndex: number) => {
